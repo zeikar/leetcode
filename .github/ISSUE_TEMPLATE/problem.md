@@ -2,7 +2,6 @@
 name: Problem
 about: Problems
 title: ""
-labels: study
 assignees: zeikar
 
 ---
