@@ -1,14 +1,14 @@
 # leetcode
 
-Solutions of Leetcode problems and brief explanations for study.
+Solutions to LeetCode problems and brief explanations for study.
 
 Each problem has a solution file in this repo and a study note in
 [Issues](https://github.com/zeikar/leetcode/issues) — the note holds the problem
-summary, the approach (including the ones that did not work), and the code.
-Both are published at **https://zeikar.dev/leetcode/**.
+summary, the approaches tried (including the ones that did not work), and the
+code. The notes are published at **https://zeikar.dev/leetcode/**.
 
 The table below is generated from the issues by
-[`update-index.yml`](.github/workflows/update-index.yml). Don't edit it by hand.
+[`update-index.yml`](.github/workflows/update-index.yml), so don't edit it by hand.
 
 <!-- PROBLEMS:START -->
 
