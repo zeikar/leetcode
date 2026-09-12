@@ -1,3 +1,6 @@
+from typing import List
+
+
 class Solution:
     def maxDistance(self, arrays: List[List[int]]) -> int:
         minimum, maximum = arrays[0][0], arrays[0][-1]

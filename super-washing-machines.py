@@ -1,3 +1,6 @@
+from typing import List
+
+
 class Solution:
     def findMinMoves(self, machines: List[int]) -> int:
         s, n = sum(machines), len(machines)

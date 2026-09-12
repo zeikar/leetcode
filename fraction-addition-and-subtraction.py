@@ -1,3 +1,6 @@
+from math import gcd
+
+
 class Solution:
     def fractionAddition(self, expression: str) -> str:
         sign = 1

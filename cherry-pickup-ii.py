@@ -1,3 +1,7 @@
+from functools import cache
+from typing import List
+
+
 class Solution:
     def cherryPickup(self, grid: List[List[int]]) -> int:
         rows, cols = len(grid), len(grid[0])

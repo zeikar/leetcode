@@ -1,3 +1,6 @@
+from collections import defaultdict
+
+
 class Solution:
     def partitionString(self, s: str) -> int:
         found = defaultdict(bool)

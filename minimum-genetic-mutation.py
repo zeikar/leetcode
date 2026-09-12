@@ -1,3 +1,7 @@
+from collections import defaultdict
+from typing import List
+
+
 class Solution:
     def minMutation(self, startGene: str, endGene: str, bank: List[str]) -> int:
         visited = defaultdict(bool)

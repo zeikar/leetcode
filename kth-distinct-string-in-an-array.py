@@ -1,3 +1,7 @@
+from collections import Counter
+from typing import List
+
+
 class Solution:
     def kthDistinct(self, arr: List[str], k: int) -> str:
         cnt = Counter(arr)

@@ -1,3 +1,6 @@
+from typing import List
+
+
 class Solution:
     def firstPalindrome(self, words: List[str]) -> str:
         def check(word):

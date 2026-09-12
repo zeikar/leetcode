@@ -1,3 +1,7 @@
+from heapq import heapify, heappop, heappush
+from typing import List
+
+
 class Solution:
     def furthestBuilding(self, heights: List[int], bricks: int, ladders: int) -> int:
         jumps = []

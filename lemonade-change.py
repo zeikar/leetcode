@@ -1,3 +1,6 @@
+from typing import List
+
+
 class Solution:
     def lemonadeChange(self, bills: List[int]) -> bool:
         change5, change10 = 0, 0

@@ -1,3 +1,6 @@
+from functools import cache
+
+
 class Solution:
     def minSteps(self, n: int) -> int:
 

@@ -1,3 +1,7 @@
+from collections import defaultdict
+from typing import List
+
+
 class Solution:
     def mostBooked(self, n: int, meetings: List[List[int]]) -> int:
         meetings = sorted(meetings, key=lambda item: item[0])

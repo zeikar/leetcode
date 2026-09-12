@@ -1,3 +1,6 @@
+from typing import List
+
+
 class Solution:
     def rearrangeArray(self, nums: List[int]) -> List[int]:
         pos_idx, neg_idx = 0, 0

@@ -1,4 +1,6 @@
-from sortedcontainers import SortedList
+import heapq
+from collections import defaultdict
+from typing import List
 
 
 class Solution:
