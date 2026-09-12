@@ -34,8 +34,6 @@ reads as written by someone else, which defeats the point of a study record.
 - State definitions go in a fenced block of their own: `dp[i][j] = ...`
 - Short paragraphs, frequent line breaks. Most notes run 250-400 characters;
   a hard problem with several moving parts earns more, but not by much.
-- Do not open with "딱 보니". It shows up in older notes and the user has said
-  it is a habit worth dropping.
 
 ## What is worth recording, and what is not
 
