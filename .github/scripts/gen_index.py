@@ -8,6 +8,8 @@ sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import leetcode_repo as repo
 
 README = "README.md"
+# Must match the article route of the deployed issueage build.
+SITE_ARTICLE = "https://zeikar.dev/leetcode/#/articles"
 START = "<!-- PROBLEMS:START -->"
 END = "<!-- PROBLEMS:END -->"
 DIFFICULTIES = ("easy", "medium", "hard")
@@ -35,7 +37,7 @@ def render(paired):
                 "| {} | [{}]({}) | {} | [{}]({}) |".format(
                     repo.problem_number(issue["title"]),
                     repo.problem_title(issue["title"]),
-                    issue["html_url"],
+                    f"{SITE_ARTICLE}/{issue['number']}",
                     level.capitalize() or "-",
                     name,
                     name,
