@@ -1,6 +1,6 @@
 ---
 name: study
-description: Work through a LeetCode problem the user is stuck on without handing over the answer - escalating hints, one level at a time, the user decides when to go deeper. Use when the user says they are stuck, wants a hint, wants to think through a problem, or mentions the daily problem - "못 풀겠어", "힌트만", "데일리 문제", "같이 풀어보자". NOT for recording an already-solved problem; that is the new-problem skill.
+description: Work through any LeetCode problem the user is stuck on without handing over the answer - escalating hints, one level at a time, the user decides when to go deeper. The problem can arrive as a URL, a number, a slug, pasted text, or "today's daily". Use when the user says they are stuck, wants a hint, or wants to think a problem through - "못 풀겠어", "힌트만", "데일리 문제", "같이 풀어보자". NOT for recording an already-solved problem; that is the new-problem skill.
 ---
 
 # Studying a problem instead of solving it
@@ -26,19 +26,23 @@ arrived at is worth more than a faster one they were handed.
 
 ## Getting the problem
 
-Today's daily problem:
+Take it however it arrives - a URL, a number, a slug, pasted problem text, or
+"today's daily". If the user pasted the statement, just use that; there is
+nothing to fetch.
 
-```bash
-curl -s https://leetcode.com/graphql -H 'Content-Type: application/json' \
-  -d '{"query":"query{activeDailyCodingChallengeQuestion{date link question{questionFrontendId title titleSlug difficulty topicTags{name}}}}"}'
-```
-
-A specific one, by slug (`.claude/skills/new-problem/SKILL.md` has the
+By slug (a URL contains it; `.claude/skills/new-problem/SKILL.md` has the
 number-to-slug lookup if all you have is a number):
 
 ```bash
 curl -s https://leetcode.com/graphql -H 'Content-Type: application/json' \
   -d '{"query":"query q($titleSlug: String!){question(titleSlug:$titleSlug){questionFrontendId title difficulty content topicTags{name}}}","variables":{"titleSlug":"SLUG"}}'
+```
+
+Today's daily problem, when that is what they mean:
+
+```bash
+curl -s https://leetcode.com/graphql -H 'Content-Type: application/json' \
+  -d '{"query":"query{activeDailyCodingChallengeQuestion{date link question{questionFrontendId title titleSlug difficulty topicTags{name}}}}"}'
 ```
 
 **Hold back `topicTags`.** "Dynamic Programming" collapses most of the search
