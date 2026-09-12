@@ -131,11 +131,19 @@ GITHUB_TOKEN=$(gh auth token) python3 .github/scripts/check_solutions.py <file>.
 ```
 
 It must print `checked 1 solution(s): OK` before committing. Then follow the
-repo's convention for solution commits:
+repo's convention for solution commits - `Create <file>.py` as the subject, and
+the issue number alone in the body:
 
 ```bash
-git add <file>.py && git commit -m "Create <file>.py" && git push origin master
+git add <file>.py
+git commit -m "Create <file>.py" -m "#<issue number>"
+git push origin master
 ```
+
+The body is what gives a solution file a way back to its note. GitHub links the
+`#number` and records the commit in that issue's timeline, so the file and the
+note reach each other from both sides. Nothing else in the repo does this - the
+README index only points issue to file.
 
 ## 5. What happens next on its own
 
