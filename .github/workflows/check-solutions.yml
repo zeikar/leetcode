@@ -1,0 +1,41 @@
+name: Check solutions
+
+on:
+  push:
+    branches: [master]
+    paths: ["*.py"]
+  pull_request:
+    paths: ["*.py"]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  issues: read
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 2
+
+      - name: Collect changed solutions
+        id: changed
+        run: |
+          if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
+            echo "args=--all" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+          base='${{ github.event.pull_request.base.sha || github.event.before }}'
+          if ! git cat-file -e "$base^{commit}" 2>/dev/null; then
+            base="HEAD^"
+          fi
+          files=$(git diff --name-only --diff-filter=d "$base" HEAD -- '*.py' | tr '\n' ' ')
+          echo "args=$files" >> "$GITHUB_OUTPUT"
+
+      - name: Check
+        if: steps.changed.outputs.args != ''
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+        run: python3 .github/scripts/check_solutions.py ${{ steps.changed.outputs.args }}
