@@ -15,7 +15,6 @@ class Solution:
             if idx == n:
                 return
 
-            ret = []
             for i in range(idx, n):
                 if i > idx and candidates[i] == candidates[i - 1]:
                     continue

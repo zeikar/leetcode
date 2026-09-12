@@ -4,8 +4,6 @@ from typing import List
 
 class Solution:
     def partition(self, s: str) -> List[List[str]]:
-        result = []
-
         @cache
         def is_palindrome(x, y):
             for i in range(y-x):

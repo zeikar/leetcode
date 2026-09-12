@@ -4,7 +4,6 @@ from typing import List
 
 class Solution:
     def numSubarraysWithSum(self, nums: List[int], goal: int) -> int:
-        n = len(nums)
         ans = 0
         sum = 0
         cnt = defaultdict(int)
