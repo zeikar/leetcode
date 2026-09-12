@@ -12,7 +12,7 @@ The table below is generated from the issues by
 
 <!-- PROBLEMS:START -->
 
-**154 solved** — Easy 13 · Medium 75 · Hard 66
+**155 solved** — Easy 13 · Medium 75 · Hard 67
 
 | # | Problem | Difficulty | Solution |
 | ---: | --- | --- | --- |
@@ -169,6 +169,7 @@ The table below is generated from the issues by
 | 2841 | [Maximum Sum of Almost Unique Subarray](https://zeikar.dev/leetcode/#/articles/82) | Medium | [maximum-sum-of-almost-unique-subarray.py](maximum-sum-of-almost-unique-subarray.py) |
 | 2971 | [Find Polygon With the Largest Perimeter](https://zeikar.dev/leetcode/#/articles/93) | Medium | [find-polygon-with-the-largest-perimeter.py](find-polygon-with-the-largest-perimeter.py) |
 | 3016 | [Minimum Number of Pushes to Type Word II](https://zeikar.dev/leetcode/#/articles/120) | Medium | [minimum-number-of-pushes-to-type-word-ii.py](minimum-number-of-pushes-to-type-word-ii.py) |
+| 3414 | [Maximum Score of Non-overlapping Intervals](https://zeikar.dev/leetcode/#/articles/156) | Hard | [maximum-score-of-non-overlapping-intervals.py](maximum-score-of-non-overlapping-intervals.py) |
 | 3871 | [Count Commas in Range II](https://zeikar.dev/leetcode/#/articles/155) | Medium | [count-commas-in-range-ii.py](count-commas-in-range-ii.py) |
 
 <!-- PROBLEMS:END -->
