@@ -15,7 +15,7 @@ first makes CI fail.
 
 ## Input needed from the user
 
-- the LeetCode problem URL
+- the problem, as a LeetCode URL or just its number
 - their solution code
 - their notes: what the problem asks, and how they solved it
 
@@ -25,7 +25,19 @@ wants, but let the user own the final wording.
 
 ## 1. Get the problem metadata
 
-Everything mechanical is derived from the URL's slug:
+Given only a number, look the slug up first - this listing carries every
+problem, so it maps a number to its slug:
+
+```bash
+curl -s https://leetcode.com/api/problems/all/ -H 'User-Agent: Mozilla/5.0' \
+  | python3 -c "import sys,json; print(next(p['stat']['question__title_slug'] for p in json.load(sys.stdin)['stat_status_pairs'] if str(p['stat']['frontend_question_id'])=='NUMBER'))"
+```
+
+Take only the slug from it and confirm the rest below - that listing reports
+difficulty as a number and its titles can differ slightly from the canonical
+ones.
+
+Everything mechanical is derived from the slug:
 
 ```bash
 curl -s https://leetcode.com/graphql -H 'Content-Type: application/json' \
@@ -84,8 +96,9 @@ The Source Code block is the same code, in a ```Python fence.
 gh issue create --title "<number>. <title>" --label <difficulty> --body-file <draft>
 ```
 
-An issue may carry more than one code block when the user recorded several
-approaches; the check passes if the file matches any one of them.
+When the user recorded several approaches, the repo's convention is a
+`## Name (runtime)` heading per approach, each with its own code block - see
+issues 86 and 138. The check passes if the file matches any one of the blocks.
 
 ## 4. Verify, then commit
 

@@ -60,6 +60,9 @@ def main():
         print(f"::warning::issue #{issue['number']} '{issue['title']}' has no solution file")
     for path in orphan_files:
         print(f"::warning file={path}::no study issue found for this solution")
+    for issue, _ in paired:
+        if not difficulty(issue):
+            print(f"::warning::issue #{issue['number']} '{issue['title']}' has no difficulty label")
 
     with open(README, encoding="utf-8") as handle:
         readme = handle.read()
