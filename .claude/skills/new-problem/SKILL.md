@@ -23,6 +23,32 @@ The notes are the point of this repo - they are the user's study record, so ask
 for them rather than inventing them. Offer to draft from the code if the user
 wants, but let the user own the final wording.
 
+## The voice of a note
+
+All 154 existing notes share a voice. A drafted note that does not match it
+reads as written by someone else, which defeats the point of a study record.
+
+- Plain declarative Korean - `~된다`, `~하면 된다`, `~한다`. Counted across the
+  existing notes: 된다 142, 있다 61, 한다 31. Not polite form, not casual speech.
+- One bolded sentence carrying the key idea, rarely more.
+- State definitions go in a fenced block of their own: `dp[i][j] = ...`
+- Short paragraphs, frequent line breaks. Most notes run 250-400 characters;
+  a hard problem with several moving parts earns more, but not by much.
+- Do not open with "딱 보니". It shows up in older notes and the user has said
+  it is a habit worth dropping.
+
+## What is worth recording, and what is not
+
+About one note in six records a mistake, and every one of them is at the level
+of **approach**, not of typing:
+
+- "처음엔 투포인터로 하다가 2, 2, 1, 1 같은 케이스를 보고 dp로 풀었다" (#23)
+- "처음엔 dfs로 구현해서 제출했는데 엣지 케이스 처리가 까다롭다. 결국 위상 정렬로 다시 제출" (#31)
+
+Not one of them records a misnamed variable or an off-by-one. The test: will
+this mistake happen again on a different problem? An approach abandoned for a
+reason will. A typo will not - it is noise in a note meant to be reread.
+
 ## 1. Get the problem metadata
 
 Given only a number, look the slug up first - this listing carries every
