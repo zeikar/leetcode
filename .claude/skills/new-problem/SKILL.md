@@ -88,8 +88,8 @@ PYTHONPATH="$DIR" python3 -m pyflakes <file>.py   # expect: no output
 
 ## 3. Create the issue
 
-Use the template sections in `.github/ISSUE_TEMPLATE/problem.md`: Problem link,
-Problem Summary, Solution, Source Code. The Problem link is the LeetCode URL.
+Use the template sections in `.github/ISSUE_TEMPLATE/problem.md`: Problem Link,
+Problem Summary, Solution, Source Code. The Problem Link is the LeetCode URL.
 The Source Code block is the same code, in a ```Python fence.
 
 ```bash

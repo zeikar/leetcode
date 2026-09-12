@@ -11,7 +11,7 @@ assignees: zeikar
      and matches this issue to its solution file by the title.
      Also add the difficulty label: easy / medium / hard. -->
 
-# Problem link
+# Problem Link
 
 
 # Problem Summary
