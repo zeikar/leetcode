@@ -3,7 +3,8 @@ name: Update index
 on:
   push:
     branches: [master]
-    paths: ["*.py"]
+    # Solution filenames appear in the table, and the scripts decide its shape.
+    paths: ["*.py", ".github/scripts/**"]
   issues:
     types: [opened, edited, deleted, reopened, closed, labeled, unlabeled]
   workflow_dispatch:
