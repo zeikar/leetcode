@@ -1,0 +1,40 @@
+name: Update index
+
+on:
+  push:
+    branches: [master]
+    paths: ["*.py"]
+  issues:
+    types: [opened, edited, deleted, reopened, closed, labeled, unlabeled]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  issues: read
+
+# Serialize runs: issue edits and pushes can otherwise race on the same commit.
+concurrency:
+  group: update-index
+
+jobs:
+  index:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Regenerate index
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+        run: python3 .github/scripts/gen_index.py
+
+      # Pushes made with GITHUB_TOKEN don't trigger workflows, so this can't loop.
+      - name: Commit
+        run: |
+          if git diff --quiet -- README.md; then
+            echo "index unchanged"
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git commit -m "Update problem index" -- README.md
+          git push
