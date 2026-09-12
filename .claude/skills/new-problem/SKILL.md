@@ -130,9 +130,9 @@ issues 86 and 138. The check passes if the file matches any one of the blocks.
 GITHUB_TOKEN=$(gh auth token) python3 .github/scripts/check_solutions.py <file>.py
 ```
 
-It must print `checked 1 solution(s): OK` before committing. Then follow the
-repo's convention for solution commits - `Create <file>.py` as the subject, and
-the issue number alone in the body:
+It must print `checked 1 solution(s): OK` before committing. Solution commits
+here carry `Create <file>.py` as the subject and the issue number alone in the
+body - 151 of the 155 existing ones do:
 
 ```bash
 git add <file>.py
@@ -140,10 +140,13 @@ git commit -m "Create <file>.py" -m "#<issue number>"
 git push origin master
 ```
 
-The body is what gives a solution file a way back to its note. GitHub links the
-`#number` and records the commit in that issue's timeline, so the file and the
-note reach each other from both sides. Nothing else in the repo does this - the
-README index only points issue to file.
+The body is not decoration. GitHub links the `#number` and logs the commit in
+that issue's timeline, and that is the only path from a solution file back to
+the note explaining it - the README index only points the other way.
+
+Two of the four commits missing it were written from this skill back when it
+described the convention as the subject line only. Read `git log` with the body
+before assuming a commit convention is just its subject.
 
 ## 5. What happens next on its own
 
