@@ -49,29 +49,17 @@ reason will. A typo will not - it is noise in a note meant to be reread.
 
 ## 1. Get the problem metadata
 
-Given only a number, look the slug up first - this listing carries every
-problem, so it maps a number to its slug:
+`scripts/problem.py` takes the problem however the user named it - a number, a
+slug, a URL, or `daily` - and prints the four fields below as JSON:
 
 ```bash
-curl -s https://leetcode.com/api/problems/all/ -H 'User-Agent: Mozilla/5.0' \
-  | python3 -c "import sys,json; print(next(p['stat']['question__title_slug'] for p in json.load(sys.stdin)['stat_status_pairs'] if str(p['stat']['frontend_question_id'])=='NUMBER'))"
-```
-
-Take only the slug from it and confirm the rest below - that listing reports
-difficulty as a number and its titles can differ slightly from the canonical
-ones.
-
-Everything mechanical is derived from the slug:
-
-```bash
-curl -s https://leetcode.com/graphql -H 'Content-Type: application/json' \
-  -d '{"query":"query q($titleSlug: String!){question(titleSlug:$titleSlug){questionFrontendId title titleSlug difficulty}}","variables":{"titleSlug":"SLUG"}}'
+python3 .claude/skills/new-problem/scripts/problem.py 2265
 ```
 
 | field | used as |
 | --- | --- |
-| `titleSlug` | the filename, `<titleSlug>.py` |
-| `questionFrontendId` | the number in the issue title |
+| `slug` | the filename, `<slug>.py` |
+| `number` | the number in the issue title |
 | `title` | the rest of the issue title |
 | `difficulty` | the issue label, lowercased (`easy` / `medium` / `hard`) |
 

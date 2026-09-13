@@ -30,23 +30,18 @@ Take it however it arrives - a URL, a number, a slug, pasted problem text, or
 "today's daily". If the user pasted the statement, just use that; there is
 nothing to fetch.
 
-By slug (a URL contains it; `.claude/skills/new-problem/SKILL.md` has the
-number-to-slug lookup if all you have is a number):
+Otherwise fetch it. The argument is the number, the slug, the URL, or `daily`,
+whichever the user gave:
 
 ```bash
-curl -s https://leetcode.com/graphql -H 'Content-Type: application/json' \
-  -d '{"query":"query q($titleSlug: String!){question(titleSlug:$titleSlug){questionFrontendId title difficulty content topicTags{name}}}","variables":{"titleSlug":"SLUG"}}'
+python3 .claude/skills/new-problem/scripts/problem.py 2265 --content
 ```
 
-Today's daily problem, when that is what they mean:
-
-```bash
-curl -s https://leetcode.com/graphql -H 'Content-Type: application/json' \
-  -d '{"query":"query{activeDailyCodingChallengeQuestion{date link question{questionFrontendId title titleSlug difficulty topicTags{name}}}}"}'
-```
-
-**Hold back `topicTags`.** "Dynamic Programming" collapses most of the search
-space on its own. They are a level 2 hint, not context to open with.
+**Do not pass `--tags`.** The script leaves the topic tags out unless asked for
+exactly this reason: "Dynamic Programming" collapses most of the search space on
+its own. They are a level 2 hint, not context to open with - and once they are
+on screen they cannot be un-seen. Add the flag only after deciding to spend that
+hint.
 
 Never fetch or paste an editorial or someone else's solution.
 
@@ -69,8 +64,8 @@ future problem; the answer to this one does not.
 | n ≤ 10⁵ | O(n log n) - sorting, heap, binary search |
 | n ≤ 10⁹ | O(log n) or math, no scanning |
 
-Topic tags belong here, and only if narrowing the technique family is what
-they are stuck on.
+Topic tags belong here, and only if narrowing the technique family is what they
+are stuck on - this is the point to re-run the lookup with `--tags`.
 
 ## Level 3 - the observation the problem turns on
 
