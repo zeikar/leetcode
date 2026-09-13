@@ -12,7 +12,7 @@ The table below is generated from the issues by
 
 <!-- PROBLEMS:START -->
 
-**156 solved** — Easy 13 · Medium 76 · Hard 67
+**157 solved** — Easy 13 · Medium 77 · Hard 67
 
 | # | Problem | Difficulty | Solution |
 | ---: | --- | --- | --- |
@@ -160,6 +160,7 @@ The table below is generated from the issues by
 | 2149 | [Rearrange Array Elements by Sign](https://zeikar.dev/leetcode/#/articles/92) | Medium | [rearrange-array-elements-by-sign.py](rearrange-array-elements-by-sign.py) |
 | 2172 | [Maximum AND Sum of Array](https://zeikar.dev/leetcode/#/articles/77) | Hard | [maximum-and-sum-of-array.py](maximum-and-sum-of-array.py) |
 | 2193 | [Minimum Number of Moves to Make Palindrome](https://zeikar.dev/leetcode/#/articles/69) | Hard | [minimum-number-of-moves-to-make-palindrome.py](minimum-number-of-moves-to-make-palindrome.py) |
+| 2265 | [Count Nodes Equal to Average of Subtree](https://zeikar.dev/leetcode/#/articles/158) | Medium | [count-nodes-equal-to-average-of-subtree.py](count-nodes-equal-to-average-of-subtree.py) |
 | 2321 | [Maximum Score Of Spliced Array](https://zeikar.dev/leetcode/#/articles/78) | Hard | [maximum-score-of-spliced-array.py](maximum-score-of-spliced-array.py) |
 | 2360 | [Longest Cycle in a Graph](https://zeikar.dev/leetcode/#/articles/79) | Hard | [longest-cycle-in-a-graph.py](longest-cycle-in-a-graph.py) |
 | 2392 | [Build a Matrix With Conditions](https://zeikar.dev/leetcode/#/articles/129) | Hard | [build-a-matrix-with-conditions.py](build-a-matrix-with-conditions.py) |
