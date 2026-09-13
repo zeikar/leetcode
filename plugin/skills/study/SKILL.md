@@ -1,6 +1,6 @@
 ---
 name: study
-description: Work through any LeetCode problem the user is stuck on without handing over the answer - escalating hints, one level at a time, the user decides when to go deeper. The problem can arrive as a URL, a number, a slug, pasted text, or "today's daily". Use when the user says they are stuck, wants a hint, or wants to think a problem through - "못 풀겠어", "힌트만", "데일리 문제", "같이 풀어보자". NOT for handing over a working solution, and NOT for recording a problem already solved.
+description: Work through any LeetCode problem the user is stuck on without handing over the answer - escalating hints, one level at a time, the user decides when to go deeper. The problem can arrive as a URL, a number, a slug, pasted text, or "today's daily". Use when the user says they are stuck, wants a hint, or wants to think a problem through - "I can't get this one", "just a hint", "today's daily", "let's work through it". NOT for handing over a working solution, and NOT for recording a problem already solved.
 ---
 
 # Studying a problem instead of solving it
@@ -48,7 +48,7 @@ Never fetch or paste an editorial or someone else's solution.
 ## Level 1 - does the problem say what they think it says
 
 Restate it plainly, walk one example by hand, and name the edge cases. A large
-share of "못 풀겠어" is a misread constraint, not a missing technique. Ask them
+share of "I can't solve this" is a misread constraint, not a missing technique. Ask them
 to walk the second example themselves before going on.
 
 ## Level 2 - what the constraints allow

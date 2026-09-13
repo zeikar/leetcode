@@ -1,28 +1,34 @@
 # leetcode
 
-Solutions to LeetCode problems and brief explanations for study.
+LeetCode solutions with a study note for every problem — and **leetcode-study**,
+a Claude Code plugin that works through a problem with you instead of handing
+over the answer.
 
-Each problem has a solution file in this repo and a study note in
-[Issues](https://github.com/zeikar/leetcode/issues) — the note holds the problem
-summary, the approaches tried (including the ones that did not work), and the
-code. The notes are published at **https://zeikar.dev/leetcode/**.
+## leetcode-study — a Claude Code plugin for studying LeetCode
 
-## The study plugin
-
-This repo also ships a Claude Code plugin, [`leetcode-study`](plugin/), which is
-the part of the setup that is useful to anyone. It adds a study mode: Claude
-gives escalating hints one level at a time instead of the answer, holds back the
-topic tags until they are asked for, and answers a wrong submission with the
-smallest counterexample rather than a rewritten solution.
+Ask any LLM for a LeetCode problem and the default is a finished solution. This
+plugin makes Claude give **one hint level at a time and then stop and wait**: it
+holds back the topic tags until they are asked for, and answers a wrong
+submission with the smallest counterexample rather than a rewritten solution.
 
 ```
 /plugin marketplace add zeikar/leetcode
 /plugin install leetcode-study@leetcode-study
 ```
 
+Then say you are stuck — "I can't get 3414", "just a hint", "today's daily",
+or a bare problem number. [**Full description →**](plugin/)
+
+## The solutions and notes
+
+Each problem has a solution file in this repo and a study note in
+[Issues](https://github.com/zeikar/leetcode/issues) — the note holds the problem
+summary, the approaches tried (including the ones that did not work), and the
+code. The notes are published at **https://zeikar.dev/leetcode/**.
+
 Recording a solved problem is a separate skill in `.claude/skills/`, kept local
-because it is built around this repo's issue template, index workflow and commit
-convention.
+rather than shipped in the plugin because it is built around this repo's issue
+template, index workflow and commit convention.
 
 ## Solved problems
 
