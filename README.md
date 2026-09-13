@@ -9,28 +9,23 @@ plugin that made the studying happen.
 
 [![Claude Code plugin](https://img.shields.io/badge/Claude_Code-plugin-d97757)](plugin/)
 
-Every AI coding tool is built to finish the problem for you. That is the one
-thing you do not want when the problem *is* the point.
-
-This plugin makes Claude **give one hint level at a time and then stop and
-wait.** It holds the topic tags back until you ask for them, and answers a wrong
-submission with the smallest input that breaks it rather than a rewritten
-function — so the fix stays yours.
+Claude gives **one hint level at a time, then stops and waits** — topic tags
+held back until you ask for them, and a wrong submission answered with the
+smallest input that breaks it rather than a rewritten function.
 
 ```
 /plugin marketplace add zeikar/leetcode
 /plugin install leetcode-study@leetcode-study
 ```
 
-Then say you are stuck — "I can't get 3414", "just a hint", "today's daily", or
-a bare problem number. [**What a session looks like →**](plugin/)
+[**What a session looks like →**](plugin/)
 
 ## The solutions and notes
 
-Each problem has a solution file in this repo and a study note in
-[Issues](https://github.com/zeikar/leetcode/issues) — the note holds the problem
-summary, the approaches tried (including the ones that did not work), and the
-code. The notes are published at **https://zeikar.dev/leetcode/**.
+Each problem has a solution file here and a study note in
+[Issues](https://github.com/zeikar/leetcode/issues) — the problem summary, the
+approaches tried including the ones that did not work, and the code. Published
+at **https://zeikar.dev/leetcode/**.
 
 Recording a solved problem is a separate skill in `.claude/skills/`, kept local
 rather than shipped in the plugin because it is built around this repo's issue
@@ -38,8 +33,8 @@ template, index workflow and commit convention.
 
 ## Solved problems
 
-The table below is generated from the issues by
-[`update-index.yml`](.github/workflows/update-index.yml), so don't edit it by hand.
+Generated from the issues by
+[`update-index.yml`](.github/workflows/update-index.yml) — don't edit by hand.
 
 <!-- PROBLEMS:START -->
 
