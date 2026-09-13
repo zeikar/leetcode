@@ -57,6 +57,9 @@ them unless `--tags` is passed — once seen, they cannot be un-seen.
 /plugin install leetcode-study@leetcode-study
 ```
 
+Working inside a clone of this repo needs neither command — `.claude/settings.json`
+registers the plugin from source, so a new session picks it up on its own.
+
 Then say you are stuck: "I can't get 3414", "just a hint", "today's daily", or a
 bare problem number — `scripts/problem.py` resolves any of those in one request.
 Claude answers in whatever language you write in.
