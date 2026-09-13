@@ -1,9 +1,14 @@
-# leetcode
+# LeetCode
 
-### Study LeetCode with Claude Code — instead of having it solved for you.
+**A study log, and the tool that made it work.**
 
-A solved-problem log with a study note for every problem, and the Claude Code
-plugin that made the studying happen.
+Every problem here has two halves: a solution file in this repo, and a study
+note in [Issues](https://github.com/zeikar/leetcode/issues) covering what the
+problem asked, what was tried, what failed, and why the working idea works. The
+notes are published at **https://zeikar.dev/leetcode/**.
+
+Studying this way needs something that will not just hand over the answer — so
+that ships here too.
 
 ## leetcode-study — a Claude Code plugin for studying LeetCode
 
@@ -11,7 +16,8 @@ plugin that made the studying happen.
 
 Claude gives **one hint level at a time, then stops and waits** — topic tags
 held back until you ask for them, and a wrong submission answered with the
-smallest input that breaks it rather than a rewritten function.
+smallest input that breaks it rather than a rewritten function. The most recent
+notes below came out of sessions like that.
 
 ```
 /plugin marketplace add zeikar/leetcode
@@ -20,21 +26,13 @@ smallest input that breaks it rather than a rewritten function.
 
 [**What a session looks like →**](plugin/)
 
-## The solutions and notes
-
-Each problem has a solution file here and a study note in
-[Issues](https://github.com/zeikar/leetcode/issues) — the problem summary, the
-approaches tried including the ones that did not work, and the code. Published
-at **https://zeikar.dev/leetcode/**.
-
-Recording a solved problem is a separate skill in `.claude/skills/`, kept local
-rather than shipped in the plugin because it is built around this repo's issue
-template, index workflow and commit convention.
-
 ## Solved problems
 
 Generated from the issues by
 [`update-index.yml`](.github/workflows/update-index.yml) — don't edit by hand.
+Recording a solved problem is a separate skill in `.claude/skills/`, kept local
+rather than shipped in the plugin because it is built around this repo's issue
+template, index workflow and commit convention.
 
 <!-- PROBLEMS:START -->
 
