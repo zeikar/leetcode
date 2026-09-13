@@ -12,7 +12,7 @@ The table below is generated from the issues by
 
 <!-- PROBLEMS:START -->
 
-**155 solved** — Easy 13 · Medium 75 · Hard 67
+**156 solved** — Easy 13 · Medium 76 · Hard 67
 
 | # | Problem | Difficulty | Solution |
 | ---: | --- | --- | --- |
@@ -100,6 +100,7 @@ The table below is generated from the issues by
 | 799 | [Champagne Tower](https://zeikar.dev/leetcode/#/articles/84) | Medium | [champagne-tower.py](champagne-tower.py) |
 | 801 | [Minimum Swaps To Make Sequences Increasing](https://zeikar.dev/leetcode/#/articles/116) | Hard | [minimum-swaps-to-make-sequences-increasing.py](minimum-swaps-to-make-sequences-increasing.py) |
 | 834 | [Sum of Distances in Tree](https://zeikar.dev/leetcode/#/articles/32) | Hard | [sum-of-distances-in-tree.py](sum-of-distances-in-tree.py) |
+| 835 | [Image Overlap](https://zeikar.dev/leetcode/#/articles/157) | Medium | [image-overlap.py](image-overlap.py) |
 | 840 | [Magic Squares In Grid](https://zeikar.dev/leetcode/#/articles/131) | Medium | [magic-squares-in-grid.py](magic-squares-in-grid.py) |
 | 857 | [Minimum Cost to Hire K Workers](https://zeikar.dev/leetcode/#/articles/51) | Hard | [minimum-cost-to-hire-k-workers.py](minimum-cost-to-hire-k-workers.py) |
 | 860 | [Lemonade Change](https://zeikar.dev/leetcode/#/articles/137) | Easy | [lemonade-change.py](lemonade-change.py) |
