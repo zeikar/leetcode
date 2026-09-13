@@ -1,23 +1,29 @@
 # leetcode
 
-LeetCode solutions with a study note for every problem — and **leetcode-study**,
-a Claude Code plugin that works through a problem with you instead of handing
-over the answer.
+### Study LeetCode with Claude Code — instead of having it solved for you.
+
+A solved-problem log with a study note for every problem, and the Claude Code
+plugin that made the studying happen.
 
 ## leetcode-study — a Claude Code plugin for studying LeetCode
 
-Ask any LLM for a LeetCode problem and the default is a finished solution. This
-plugin makes Claude give **one hint level at a time and then stop and wait**: it
-holds back the topic tags until they are asked for, and answers a wrong
-submission with the smallest counterexample rather than a rewritten solution.
+[![Claude Code plugin](https://img.shields.io/badge/Claude_Code-plugin-d97757)](plugin/)
+
+Every AI coding tool is built to finish the problem for you. That is the one
+thing you do not want when the problem *is* the point.
+
+This plugin makes Claude **give one hint level at a time and then stop and
+wait.** It holds the topic tags back until you ask for them, and answers a wrong
+submission with the smallest input that breaks it rather than a rewritten
+function — so the fix stays yours.
 
 ```
 /plugin marketplace add zeikar/leetcode
 /plugin install leetcode-study@leetcode-study
 ```
 
-Then say you are stuck — "I can't get 3414", "just a hint", "today's daily",
-or a bare problem number. [**Full description →**](plugin/)
+Then say you are stuck — "I can't get 3414", "just a hint", "today's daily", or
+a bare problem number. [**What a session looks like →**](plugin/)
 
 ## The solutions and notes
 
