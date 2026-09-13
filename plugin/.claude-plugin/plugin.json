@@ -1,0 +1,18 @@
+{
+  "name": "leetcode-study",
+  "version": "0.1.0",
+  "description": "A study mode for LeetCode: escalating hints one level at a time, topic tags held back, and the smallest counterexample for a wrong answer instead of a rewritten solution.",
+  "author": {
+    "name": "Zeikar",
+    "url": "https://github.com/zeikar"
+  },
+  "repository": "https://github.com/zeikar/leetcode",
+  "license": "MIT",
+  "keywords": [
+    "leetcode",
+    "algorithms",
+    "study",
+    "hints",
+    "interview-prep"
+  ]
+}

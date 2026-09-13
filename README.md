@@ -7,6 +7,25 @@ Each problem has a solution file in this repo and a study note in
 summary, the approaches tried (including the ones that did not work), and the
 code. The notes are published at **https://zeikar.dev/leetcode/**.
 
+## The study plugin
+
+This repo also ships a Claude Code plugin, [`leetcode-study`](plugin/), which is
+the part of the setup that is useful to anyone. It adds a study mode: Claude
+gives escalating hints one level at a time instead of the answer, holds back the
+topic tags until they are asked for, and answers a wrong submission with the
+smallest counterexample rather than a rewritten solution.
+
+```
+/plugin marketplace add zeikar/leetcode
+/plugin install leetcode-study@leetcode-study
+```
+
+Recording a solved problem is a separate skill in `.claude/skills/`, kept local
+because it is built around this repo's issue template, index workflow and commit
+convention.
+
+## Solved problems
+
 The table below is generated from the issues by
 [`update-index.yml`](.github/workflows/update-index.yml), so don't edit it by hand.
 

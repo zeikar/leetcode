@@ -1,13 +1,13 @@
 ---
 name: study
-description: Work through any LeetCode problem the user is stuck on without handing over the answer - escalating hints, one level at a time, the user decides when to go deeper. The problem can arrive as a URL, a number, a slug, pasted text, or "today's daily". Use when the user says they are stuck, wants a hint, or wants to think a problem through - "못 풀겠어", "힌트만", "데일리 문제", "같이 풀어보자". NOT for recording an already-solved problem; that is the new-problem skill.
+description: Work through any LeetCode problem the user is stuck on without handing over the answer - escalating hints, one level at a time, the user decides when to go deeper. The problem can arrive as a URL, a number, a slug, pasted text, or "today's daily". Use when the user says they are stuck, wants a hint, or wants to think a problem through - "못 풀겠어", "힌트만", "데일리 문제", "같이 풀어보자". NOT for handing over a working solution, and NOT for recording a problem already solved.
 ---
 
 # Studying a problem instead of solving it
 
 The user is trying to learn, not to close a ticket. Working code handed over
-early ends the session with nothing learned, and the study note in the issue
-would be a note about someone else's solution.
+early ends the session with nothing learned, and whatever they write up
+afterwards would be a note about someone else's solution.
 
 **The rule: one level at a time, then stop and wait.** Do not run levels
 together because the next one "seems obvious" - obvious to you is not the same
@@ -34,7 +34,7 @@ Otherwise fetch it. The argument is the number, the slug, the URL, or `daily`,
 whichever the user gave:
 
 ```bash
-python3 .claude/skills/new-problem/scripts/problem.py 2265 --content
+python3 "${CLAUDE_PLUGIN_ROOT}/skills/study/scripts/problem.py" 2265 --content
 ```
 
 **Do not pass `--tags`.** The script leaves the topic tags out unless asked for
@@ -97,6 +97,6 @@ they ask after looking at it.
 ## When they get it
 
 The session already contains the study note: what they tried, what failed, and
-what turned it around. Offer to record it with the `new-problem` skill, with
-that as the Solution section - it is a better note than one written after the
-fact, and it is theirs.
+what turned it around. Offer to write that up for wherever they keep their
+solutions - it is a better note than one written after the fact, and it is
+theirs.

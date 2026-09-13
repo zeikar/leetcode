@@ -49,11 +49,12 @@ reason will. A typo will not - it is noise in a note meant to be reread.
 
 ## 1. Get the problem metadata
 
-`scripts/problem.py` takes the problem however the user named it - a number, a
-slug, a URL, or `daily` - and prints the four fields below as JSON:
+The lookup ships with the `study` skill in this repo's plugin. It takes the
+problem however the user named it - a number, a slug, a URL, or `daily` - and
+prints the four fields below as JSON:
 
 ```bash
-python3 .claude/skills/new-problem/scripts/problem.py 2265
+python3 plugin/skills/study/scripts/problem.py 2265
 ```
 
 | field | used as |

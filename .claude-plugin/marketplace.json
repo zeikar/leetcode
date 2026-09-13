@@ -1,0 +1,15 @@
+{
+  "name": "leetcode-study",
+  "owner": {
+    "name": "zeikar",
+    "url": "https://github.com/zeikar"
+  },
+  "description": "Work through LeetCode problems with Claude without being handed the answer.",
+  "plugins": [
+    {
+      "name": "leetcode-study",
+      "source": "./plugin",
+      "description": "A study mode for LeetCode: escalating hints one level at a time, topic tags held back, and the smallest counterexample for a wrong answer instead of a rewritten solution."
+    }
+  ]
+}
