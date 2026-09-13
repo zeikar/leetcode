@@ -1,0 +1,13 @@
+{
+  "extraKnownMarketplaces": {
+    "leetcode-study": {
+      "source": {
+        "source": "directory",
+        "path": "."
+      }
+    }
+  },
+  "enabledPlugins": {
+    "leetcode-study@leetcode-study": true
+  }
+}
