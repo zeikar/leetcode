@@ -51,17 +51,19 @@ analysis, so treat the numbers as approximate):
 - **Bold** marks a short phrase, median 17 characters - `**bottom-up**`,
   `**음수, 양수를 나누는 방법**` - and only 29 of 208 spans are whole sentences.
   A third of notes have none.
-- **Code-like text** is written bare in the prose, `DP[i] = i 인덱스부터 ...`;
-  inline backticks average 0.18 per note. State definitions go in a fenced
-  block of their own.
+- **Code-like text** - an expression, an identifier, an operator - goes in
+  inline backticks: `n - div + 1`, `max(r, 0)`. The user's own notes mostly
+  wrote it bare (0.18 backticks per note), but the user wants backticks kept
+  for readability, so this is the one place a draft should not copy the
+  corpus. State definitions still go in a fenced block of their own.
 - **Size.** Problem Summary is one sentence ending in `~문제.` (151 of 152).
   Solution prose, code blocks excluded, has a median of about 260 characters
   over 6 sentences.
 
 The drafted notes #155-#159 drifted in measurable ways: twice the sentences
-(11.6 against 5.9) at the same sentence length, inline code twenty times as
-often, `~이다` endings doubled, `~뿐이다` in 3 of 5 notes against 0 of 152, and
-none of 일단, 그냥, 즉, 딱 보니 or `~주면 된다`. Benchmarks narrated step by step
+(11.6 against 5.9) at the same sentence length, `~이다` endings doubled,
+`~뿐이다` in 3 of 5 notes against 0 of 152, and none of 일단, 그냥, 즉, 딱 보니
+or `~주면 된다`. Benchmarks narrated step by step
 and closing aphorisms ("하는 일이 입력과 무관하면 그건 입력을 보는 일이 아니다")
 come from the drafter, not the user.
 
