@@ -25,15 +25,45 @@ wants, but let the user own the final wording.
 
 ## The voice of a note
 
-All 154 existing notes share a voice. A drafted note that does not match it
-reads as written by someone else, which defeats the point of a study record.
+The user wrote issues #1-#154 themselves. From #155 on, notes were drafted
+through this skill, and so were the sections added to #23 later - so measure
+the voice against #1-#154 minus #23, never the whole tracker. A drafted note
+that does not match it reads as written by someone else, which defeats the
+point of a study record.
 
-- Plain declarative Korean - `~된다`, `~하면 된다`, `~한다`. Counted across the
-  existing notes: 된다 142, 있다 61, 한다 31. Not polite form, not casual speech.
-- One bolded sentence carrying the key idea, rarely more.
-- State definitions go in a fenced block of their own: `dp[i][j] = ...`
-- Short paragraphs, frequent line breaks. Most notes run 250-400 characters;
-  a hard problem with several moving parts earns more, but not by much.
+Counted over those 152 notes (892 sentences, split on spaces - no morphological
+analysis, so treat the numbers as approximate):
+
+- **Register.** Plain written Korean, mostly `~다`, with a casual streak: a
+  trailing `...` (27% of notes), a parenthetical aside (26%), a question
+  (14%), the odd `~함` or `~듯?`. Never polite form.
+- **Endings** per 100 sentences: 된다 24, 있다 12, 이다 8, 한다 8. `~수 있다`
+  appears 101 times, and `~주면 된다` (돌려주면, 빼주면, 곱해주면) in 35% of notes.
+- **Openers.** 일단 32, 즉 23, 딱 (보니) 17, 그냥 16, 먼저 14, 여기서 12,
+  그러면 10, 처음에는 / 처음에 / 처음엔 20 together. Fillers in the same vein:
+  간단하게, 좀, 꽤, 약간, 죽 돌면서, 잘 생각해보면, 생각보다.
+- **Terms.** Acronyms upper-case - DP 57 against dp 19, BFS, DFS, KMP, LIS.
+  English terms stay English (top-down, prefix, heap, swap); 그리디, 스택, 정렬,
+  구현 stay Korean.
+- **What goes in.** A complexity line, often bare: `시간복잡도는 O(n log n)`
+  (32%). Credit when the user leaned on an editorial or discuss post -
+  "에디토리얼 참고", "아래 디스커션 참고함" (21%); ask rather than assume.
+- **Bold** marks a short phrase, median 17 characters - `**bottom-up**`,
+  `**음수, 양수를 나누는 방법**` - and only 29 of 208 spans are whole sentences.
+  A third of notes have none.
+- **Code-like text** is written bare in the prose, `DP[i] = i 인덱스부터 ...`;
+  inline backticks average 0.18 per note. State definitions go in a fenced
+  block of their own.
+- **Size.** Problem Summary is one sentence ending in `~문제.` (151 of 152).
+  Solution prose, code blocks excluded, has a median of about 260 characters
+  over 6 sentences.
+
+The drafted notes #155-#159 drifted in measurable ways: twice the sentences
+(11.6 against 5.9) at the same sentence length, inline code twenty times as
+often, `~이다` endings doubled, `~뿐이다` in 3 of 5 notes against 0 of 152, and
+none of 일단, 그냥, 즉, 딱 보니 or `~주면 된다`. Benchmarks narrated step by step
+and closing aphorisms ("하는 일이 입력과 무관하면 그건 입력을 보는 일이 아니다")
+come from the drafter, not the user.
 
 ## What is worth recording, and what is not
 
