@@ -36,7 +36,7 @@ template, index workflow and commit convention.
 
 <!-- PROBLEMS:START -->
 
-**157 solved** — Easy 13 · Medium 77 · Hard 67
+**158 solved** — Easy 14 · Medium 77 · Hard 67
 
 | # | Problem | Difficulty | Solution |
 | ---: | --- | --- | --- |
@@ -125,6 +125,7 @@ template, index workflow and commit convention.
 | 801 | [Minimum Swaps To Make Sequences Increasing](https://zeikar.dev/leetcode/posts/116/) | Hard | [minimum-swaps-to-make-sequences-increasing.py](minimum-swaps-to-make-sequences-increasing.py) |
 | 834 | [Sum of Distances in Tree](https://zeikar.dev/leetcode/posts/32/) | Hard | [sum-of-distances-in-tree.py](sum-of-distances-in-tree.py) |
 | 835 | [Image Overlap](https://zeikar.dev/leetcode/posts/157/) | Medium | [image-overlap.py](image-overlap.py) |
+| 836 | [Rectangle Overlap](https://zeikar.dev/leetcode/posts/159/) | Easy | [rectangle-overlap.py](rectangle-overlap.py) |
 | 840 | [Magic Squares In Grid](https://zeikar.dev/leetcode/posts/131/) | Medium | [magic-squares-in-grid.py](magic-squares-in-grid.py) |
 | 857 | [Minimum Cost to Hire K Workers](https://zeikar.dev/leetcode/posts/51/) | Hard | [minimum-cost-to-hire-k-workers.py](minimum-cost-to-hire-k-workers.py) |
 | 860 | [Lemonade Change](https://zeikar.dev/leetcode/posts/137/) | Easy | [lemonade-change.py](lemonade-change.py) |
