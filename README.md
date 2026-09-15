@@ -36,7 +36,7 @@ form, index workflow and commit convention.
 
 <!-- PROBLEMS:START -->
 
-**158 solved** — Easy 14 · Medium 77 · Hard 67
+**159 solved** — Easy 14 · Medium 77 · Hard 68
 
 | # | Problem | Difficulty | Solution |
 | ---: | --- | --- | --- |
@@ -192,6 +192,7 @@ form, index workflow and commit convention.
 | 2402 | [Meeting Rooms III](https://zeikar.dev/leetcode/posts/254/) | Hard | [meeting-rooms-iii.py](meeting-rooms-iii.py) |
 | 2405 | [Optimal Partition of String](https://zeikar.dev/leetcode/posts/285/) | Medium | [optimal-partition-of-string.py](optimal-partition-of-string.py) |
 | 2461 | [Maximum Sum of Distinct Subarrays With Length K](https://zeikar.dev/leetcode/posts/312/) | Medium | [maximum-sum-of-distinct-subarrays-with-length-k.py](maximum-sum-of-distinct-subarrays-with-length-k.py) |
+| 2472 | [Maximum Number of Non-overlapping Palindrome Substrings](https://zeikar.dev/leetcode/posts/318/) | Hard | [maximum-number-of-non-overlapping-palindrome-substrings.py](maximum-number-of-non-overlapping-palindrome-substrings.py) |
 | 2551 | [Put Marbles in Bags](https://zeikar.dev/leetcode/posts/267/) | Hard | [put-marbles-in-bags.py](put-marbles-in-bags.py) |
 | 2841 | [Maximum Sum of Almost Unique Subarray](https://zeikar.dev/leetcode/posts/240/) | Medium | [maximum-sum-of-almost-unique-subarray.py](maximum-sum-of-almost-unique-subarray.py) |
 | 2971 | [Find Polygon With the Largest Perimeter](https://zeikar.dev/leetcode/posts/251/) | Medium | [find-polygon-with-the-largest-perimeter.py](find-polygon-with-the-largest-perimeter.py) |
