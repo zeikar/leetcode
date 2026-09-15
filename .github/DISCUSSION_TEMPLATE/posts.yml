@@ -1,0 +1,33 @@
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Title the note exactly `NNN. Problem Title` as LeetCode writes it, e.g. `3871. Count Commas in Range II`. The README index reads the leading number and pairs the note with its solution file by the title.
+
+        After posting, add the difficulty label: `easy`, `medium` or `hard`. A form can't set a label from a choice.
+  - type: input
+    attributes:
+      label: Problem Link
+    validations:
+      required: true
+  # left empty, a field would be posted as "_No response_" under its heading
+  - type: textarea
+    attributes:
+      label: Problem Summary
+    validations:
+      required: true
+  - type: textarea
+    attributes:
+      label: Solution
+    validations:
+      required: true
+  - type: textarea
+    attributes:
+      label: Source Code
+      description: >-
+        The same code as the .py file. Don't reformat one side only: CI compares them line by line.
+        Recording several approaches? Give each one a "## Name (runtime)" heading with its own code block, the way #244 and #296 do.
+      value: |
+        ```Python
+
+        ```

@@ -1,4 +1,4 @@
-"""Shared helpers: load the study issues and pair them with solution files."""
+"""Shared helpers: load the study notes and pair them with solution files."""
 
 import glob
 import json
@@ -9,16 +9,26 @@ import urllib.request
 
 GRAPHQL = "https://api.github.com/graphql"
 REPO = os.environ.get("GITHUB_REPOSITORY", "zeikar/leetcode")
+# The discussion category the notes live in, the same one the site publishes.
+CATEGORY = "posts"
 
 CODE_BLOCK = re.compile(r"```[Pp]ython\s*\n(.*?)```", re.S)
 
-# The REST list and search endpoints both silently omit at least one issue of
-# this repo (#20), so pagination goes through GraphQL, which is cursor-based.
-ISSUES_QUERY = """
-query($owner: String!, $name: String!, $cursor: String) {
+# Discussions are only in the GraphQL API, which filters them by category id
+# rather than slug, so the id is looked up first.
+CATEGORY_QUERY = """
+query($owner: String!, $name: String!, $slug: String!) {
   repository(owner: $owner, name: $name) {
-    issues(first: 100, states: OPEN, after: $cursor,
-           orderBy: {field: CREATED_AT, direction: ASC}) {
+    discussionCategory(slug: $slug) { id }
+  }
+}
+"""
+
+NOTES_QUERY = """
+query($owner: String!, $name: String!, $category: ID!, $cursor: String) {
+  repository(owner: $owner, name: $name) {
+    discussions(first: 100, categoryId: $category, states: [OPEN], after: $cursor,
+                orderBy: {field: CREATED_AT, direction: ASC}) {
       pageInfo { hasNextPage endCursor }
       nodes {
         number
@@ -33,11 +43,11 @@ query($owner: String!, $name: String!, $cursor: String) {
 """
 
 
-def _graphql(variables):
+def _graphql(query, variables):
     token = os.environ.get("GITHUB_TOKEN")
     if not token:
         raise SystemExit("GITHUB_TOKEN is required (GitHub's GraphQL API rejects anonymous calls)")
-    payload = json.dumps({"query": ISSUES_QUERY, "variables": variables}).encode()
+    payload = json.dumps({"query": query, "variables": variables}).encode()
     request = urllib.request.Request(
         GRAPHQL,
         data=payload,
@@ -50,16 +60,19 @@ def _graphql(variables):
         raise SystemExit(f"GitHub GraphQL API refused the request ({error.code})") from error
     if "errors" in body:
         raise SystemExit(f"GitHub GraphQL API returned errors: {body['errors']}")
-    return body["data"]["repository"]["issues"]
+    return body["data"]["repository"]
 
 
-def load_issues():
-    """Every open issue in the repo, oldest first."""
+def load_notes():
+    """Every open discussion in the notes category, oldest first."""
     owner, name = REPO.split("/")
-    issues, cursor = [], None
+    # an unknown slug comes back as a GraphQL error naming it, which _graphql reports
+    category = _graphql(CATEGORY_QUERY, {"owner": owner, "name": name, "slug": CATEGORY})
+    variables = {"owner": owner, "name": name, "category": category["discussionCategory"]["id"]}
+    notes, cursor = [], None
     while True:
-        page = _graphql({"owner": owner, "name": name, "cursor": cursor})
-        issues += [
+        page = _graphql(NOTES_QUERY, {**variables, "cursor": cursor})["discussions"]
+        notes += [
             {
                 "number": node["number"],
                 "title": node["title"],
@@ -70,21 +83,21 @@ def load_issues():
             for node in page["nodes"]
         ]
         if not page["pageInfo"]["hasNextPage"]:
-            return issues
+            return notes
         cursor = page["pageInfo"]["endCursor"]
 
 
-def problem_number(issue_title):
-    match = re.match(r"\s*(\d+)\.", issue_title)
+def problem_number(note_title):
+    match = re.match(r"\s*(\d+)\.", note_title)
     return int(match.group(1)) if match else None
 
 
-def problem_title(issue_title):
-    return re.sub(r"^\s*\d+\.\s*", "", issue_title).strip()
+def problem_title(note_title):
+    return re.sub(r"^\s*\d+\.\s*", "", note_title).strip()
 
 
 def match_key(text):
-    """Key used to pair an issue title with its solution filename.
+    """Key used to pair a note title with its solution filename.
 
     Hyphenation differs between the two ("Find K-th Smallest Pair Distance" vs
     find-k-th-smallest-pair-distance.py), so only letters and digits survive.
@@ -112,7 +125,7 @@ def solution_code(code):
     """The solution itself, with the scaffolding around it dropped.
 
     Solution files carry imports and an uncommented LeetCode class stub so the
-    repo can be linted; the issues keep the pristine editor paste, where those
+    repo can be linted; the notes keep the pristine editor paste, where those
     are absent or commented out. Neither is a difference worth reporting, so
     both sides are stripped down to the solution before they are compared.
     """
@@ -130,16 +143,16 @@ def solution_code(code):
     return "\n".join(kept)
 
 
-def pair_with_files(issues, root="."):
-    """Return (pairs, issues_missing_a_file, files_missing_an_issue)."""
+def pair_with_files(notes, root="."):
+    """Return (pairs, notes_missing_a_file, files_missing_a_note)."""
     files = solution_files(root)
-    paired, orphan_issues = [], []
-    for issue in issues:
-        path = files.get(match_key(problem_title(issue["title"])))
+    paired, orphan_notes = [], []
+    for note in notes:
+        path = files.get(match_key(problem_title(note["title"])))
         if path is None:
-            orphan_issues.append(issue)
+            orphan_notes.append(note)
         else:
-            paired.append((issue, path))
+            paired.append((note, path))
     claimed = {path for _, path in paired}
     orphan_files = [path for path in files.values() if path not in claimed]
-    return paired, orphan_issues, orphan_files
+    return paired, orphan_notes, orphan_files

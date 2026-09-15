@@ -10,7 +10,7 @@ on:
 
 permissions:
   contents: read
-  issues: read
+  discussions: read
 
 jobs:
   check:

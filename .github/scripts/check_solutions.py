@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Check that each solution file still matches the code block in its study issue.
+"""Check that each solution file still matches the code block in its study note.
 
 Usage: check_solutions.py [--all | FILE ...]
 
@@ -18,18 +18,18 @@ def annotate(path, message, line=None):
     print(f"::error {where}::{message}")
 
 
-def check_matches_issue(path, issue):
+def check_matches_note(path, note):
     with open(path, encoding="utf-8") as handle:
         code = repo.solution_code(handle.read())
-    blocks = repo.code_blocks(issue["body"])
+    blocks = repo.code_blocks(note["body"])
     if not blocks:
-        annotate(path, f"issue #{issue['number']} has no ```Python block")
+        annotate(path, f"discussion #{note['number']} has no ```Python block")
         return False
     if code not in [repo.solution_code(block) for block in blocks]:
         annotate(
             path,
-            f"does not match any code block in issue #{issue['number']} "
-            f"({issue['html_url']}) - update whichever side is stale",
+            f"does not match any code block in discussion #{note['number']} "
+            f"({note['html_url']}) - update whichever side is stale",
         )
         return False
     return True
@@ -43,20 +43,20 @@ def main():
         print("no solution files to check")
         return 0
 
-    paired, _, orphan_files = repo.pair_with_files(repo.load_issues())
+    paired, _, orphan_files = repo.pair_with_files(repo.load_notes())
     selected = [
-        (issue, path)
-        for issue, path in paired
+        (note, path)
+        for note, path in paired
         if check_all or os.path.basename(path) in requested
     ]
 
     ok = True
-    for issue, path in selected:
-        ok &= check_matches_issue(path, issue)
+    for note, path in selected:
+        ok &= check_matches_note(path, note)
 
     for path in orphan_files:
         if check_all or os.path.basename(path) in requested:
-            annotate(path, "no study issue found for this solution")
+            annotate(path, "no study note found for this solution")
             ok = False
 
     print(f"checked {len(selected)} solution(s): {'OK' if ok else 'FAILED'}")

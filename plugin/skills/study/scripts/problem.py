@@ -6,7 +6,7 @@
     problem.py https://leetcode.com/problems/two-sum/
     problem.py daily                today's daily challenge
 
-Prints JSON: number, title, slug, difficulty. The issue title, the filename and
+Prints JSON: number, title, slug, difficulty. The note title, the filename and
 the difficulty label all come from here, so a typo cannot creep in by hand.
 """
 import json

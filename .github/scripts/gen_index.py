@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Regenerate the problem table in README.md from the study issues."""
+"""Regenerate the problem table in README.md from the study notes."""
 
 import os
 import sys
@@ -15,8 +15,8 @@ END = "<!-- PROBLEMS:END -->"
 DIFFICULTIES = ("easy", "medium", "hard")
 
 
-def difficulty(issue):
-    names = {label["name"] for label in issue["labels"]}
+def difficulty(note):
+    names = {label["name"] for label in note["labels"]}
     for name in DIFFICULTIES:
         if name in names:
             return name
@@ -26,18 +26,18 @@ def difficulty(issue):
 def render(paired):
     rows = []
     counts = dict.fromkeys(DIFFICULTIES, 0)
-    for issue, path in paired:
-        level = difficulty(issue)
+    for note, path in paired:
+        level = difficulty(note)
         if level:
             counts[level] += 1
         name = os.path.basename(path)
         rows.append(
             (
-                repo.problem_number(issue["title"]),
+                repo.problem_number(note["title"]),
                 "| {} | [{}]({}) | {} | [{}]({}) |".format(
-                    repo.problem_number(issue["title"]),
-                    repo.problem_title(issue["title"]),
-                    f"{SITE_ARTICLE}/{issue['number']}/",
+                    repo.problem_number(note["title"]),
+                    repo.problem_title(note["title"]),
+                    f"{SITE_ARTICLE}/{note['number']}/",
                     level.capitalize() or "-",
                     name,
                     name,
@@ -55,14 +55,14 @@ def render(paired):
 
 
 def main():
-    paired, orphan_issues, orphan_files = repo.pair_with_files(repo.load_issues())
-    for issue in orphan_issues:
-        print(f"::warning::issue #{issue['number']} '{issue['title']}' has no solution file")
+    paired, orphan_notes, orphan_files = repo.pair_with_files(repo.load_notes())
+    for note in orphan_notes:
+        print(f"::warning::discussion #{note['number']} '{note['title']}' has no solution file")
     for path in orphan_files:
-        print(f"::warning file={path}::no study issue found for this solution")
-    for issue, _ in paired:
-        if not difficulty(issue):
-            print(f"::warning::issue #{issue['number']} '{issue['title']}' has no difficulty label")
+        print(f"::warning file={path}::no study note found for this solution")
+    for note, _ in paired:
+        if not difficulty(note):
+            print(f"::warning::discussion #{note['number']} '{note['title']}' has no difficulty label")
 
     with open(README, encoding="utf-8") as handle:
         readme = handle.read()

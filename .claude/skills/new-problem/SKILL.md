@@ -1,16 +1,17 @@
 ---
 name: new-problem
-description: Record a newly solved LeetCode problem in this repo - create the study issue, add the solution file, commit and push. Use when the user says they solved a problem and gives a LeetCode link and their code, or asks to "add a problem" / "문제 추가" / "새 문제 풀었어".
+description: Record a newly solved LeetCode problem in this repo - create the study note, add the solution file, commit and push. Use when the user says they solved a problem and gives a LeetCode link and their code, or asks to "add a problem" / "문제 추가" / "새 문제 풀었어".
 ---
 
 # Recording a solved problem
 
 Every problem lives in two places: a solution file at the repo root and a study
-issue. CI checks that they agree, and the README index is regenerated from the
-issues. This skill walks the routine that keeps all of it consistent.
+note, a discussion in the Posts category. CI checks that they agree, and the
+README index is regenerated from the notes. This skill walks the routine that
+keeps all of it consistent.
 
-**Order matters: create the issue first, then the file.** `check_solutions.py`
-treats a solution file with no matching issue as an error, so pushing the file
+**Order matters: create the note first, then the file.** `check_solutions.py`
+treats a solution file with no matching note as an error, so pushing the file
 first makes CI fail.
 
 ## Input needed from the user
@@ -25,9 +26,9 @@ wants, but let the user own the final wording.
 
 ## The voice of a note
 
-The user wrote issues #1-#154 themselves. From #155 on, notes were drafted
-through this skill, and so were the sections added to #23 later - so measure
-the voice against #1-#154 minus #23, never the whole tracker. A drafted note
+The user wrote notes #160-#312 themselves. From #313 on, notes were drafted
+through this skill, and so were the sections added to #181 later - so measure
+the voice against #160-#312 minus #181, never the whole category. A drafted note
 that does not match it reads as written by someone else, which defeats the
 point of a study record.
 
@@ -60,7 +61,7 @@ analysis, so treat the numbers as approximate):
   Solution prose, code blocks excluded, has a median of about 260 characters
   over 6 sentences.
 
-The drafted notes #155-#159 drifted in measurable ways: twice the sentences
+The drafted notes #313-#317 drifted in measurable ways: twice the sentences
 (11.6 against 5.9) at the same sentence length, `~이다` endings doubled,
 `~뿐이다` in 3 of 5 notes against 0 of 152, and none of 일단, 그냥, 즉, 딱 보니
 or `~주면 된다`. Benchmarks narrated step by step
@@ -72,8 +73,8 @@ come from the drafter, not the user.
 About one note in six records a mistake, and every one of them is at the level
 of **approach**, not of typing:
 
-- "처음엔 투포인터로 하다가 2, 2, 1, 1 같은 케이스를 보고 dp로 풀었다" (#23)
-- "처음엔 dfs로 구현해서 제출했는데 엣지 케이스 처리가 까다롭다. 결국 위상 정렬로 다시 제출" (#31)
+- "처음엔 투포인터로 하다가 2, 2, 1, 1 같은 케이스를 보고 dp로 풀었다" (#181)
+- "처음엔 dfs로 구현해서 제출했는데 엣지 케이스 처리가 까다롭다. 결국 위상 정렬로 다시 제출" (#189)
 
 Not one of them records a misnamed variable or an off-by-one. The test: will
 this mistake happen again on a different problem? An approach abandoned for a
@@ -92,18 +93,18 @@ python3 plugin/skills/study/scripts/problem.py 2265
 | field | used as |
 | --- | --- |
 | `slug` | the filename, `<slug>.py` |
-| `number` | the number in the issue title |
-| `title` | the rest of the issue title |
-| `difficulty` | the issue label, lowercased (`easy` / `medium` / `hard`) |
+| `number` | the number in the note title |
+| `title` | the rest of the note title |
+| `difficulty` | the note's label, lowercased (`easy` / `medium` / `hard`) |
 
-The issue title must be exactly `<number>. <title>` - `gen_index.py` parses the
-leading number, and issues are paired to files by title, so a typo here drops
+The note title must be exactly `<number>. <title>` - `gen_index.py` parses the
+leading number, and notes are paired to files by title, so a typo here drops
 the problem out of the README.
 
 ## 2. Write the solution file
 
 Take the user's code as-is and add only the import lines it needs. **Do not
-reformat.** The issue holds the same code, and the sync check compares it line
+reformat.** The note holds the same code, and the sync check compares it line
 by line - imports and comments are stripped from both sides, but a reflowed
 line is a mismatch. Reformatting is what caused most of the drift this repo
 had to clean up.
@@ -131,19 +132,24 @@ python3 -m pip install --quiet --target "$DIR" pyflakes
 PYTHONPATH="$DIR" python3 -m pyflakes <file>.py   # expect: no output
 ```
 
-## 3. Create the issue
+## 3. Create the note
 
-Use the template sections in `.github/ISSUE_TEMPLATE/problem.md`: Problem Link,
-Problem Summary, Solution, Source Code. The Problem Link is the LeetCode URL.
-The Source Code block is the same code, in a ```Python fence.
+Use the sections of the note form in `.github/DISCUSSION_TEMPLATE/posts.yml`:
+Problem Link, Problem Summary, Solution, Source Code. Write each as a
+`# Problem Link` heading, as every existing note does; the form itself would
+turn them into `###` headings. The Problem Link is the LeetCode URL. The Source
+Code block is the same code, in a ```Python fence.
 
 ```bash
-gh issue create --title "<number>. <title>" --label <difficulty> --body-file <draft>
+gh discussion create -R zeikar/leetcode --category posts \
+  --title "<number>. <title>" --label <difficulty> --body-file <draft>
 ```
+
+`gh discussion` needs gh 2.99 or later, where it is still a preview command.
 
 When the user recorded several approaches, the repo's convention is a
 `## Name (runtime)` heading per approach, each with its own code block - see
-issues 86 and 138. The check passes if the file matches any one of the blocks.
+#244 and #296. The check passes if the file matches any one of the blocks.
 
 ## 4. Verify, then commit
 
@@ -152,18 +158,19 @@ GITHUB_TOKEN=$(gh auth token) python3 .github/scripts/check_solutions.py <file>.
 ```
 
 It must print `checked 1 solution(s): OK` before committing. Solution commits
-here carry `Create <file>.py` as the subject and the issue number alone in the
+here carry `Create <file>.py` as the subject and the note's number alone in the
 body - 151 of the 155 existing ones do:
 
 ```bash
 git add <file>.py
-git commit -m "Create <file>.py" -m "#<issue number>"
+git commit -m "Create <file>.py" -m "#<note number>"
 git push origin master
 ```
 
-The body is not decoration. GitHub links the `#number` and logs the commit in
-that issue's timeline, and that is the only path from a solution file back to
-the note explaining it - the README index only points the other way.
+The body is not decoration. The `#number` is the only path from a solution
+file back to the note explaining it - the README index only points the other
+way. Commits from before the notes moved to discussions carry the old issue
+number; that issue is closed and links to the discussion it became.
 
 Two of the four commits missing it were written from this skill back when it
 described the convention as the subject line only. Read `git log` with the body
@@ -172,7 +179,7 @@ before assuming a commit convention is just its subject.
 ## 5. What happens next on its own
 
 - `check-solutions.yml` re-runs the same check on the pushed file
-- `update-index.yml` regenerates the README table from the issues
+- `update-index.yml` regenerates the README table from the notes
 
 Nothing else needs doing. If the README table does not pick the problem up,
-the issue title is the first thing to check.
+the note title is the first thing to check.
