@@ -15,11 +15,13 @@ CATEGORY = "posts"
 CODE_BLOCK = re.compile(r"```[Pp]ython\s*\n(.*?)```", re.S)
 
 # Discussions are only in the GraphQL API, which filters them by category id
-# rather than slug, so the id is looked up first.
-CATEGORY_QUERY = """
-query($owner: String!, $name: String!, $slug: String!) {
+# rather than slug, so the id is looked up first. It comes from the category
+# list: with a workflow's GITHUB_TOKEN, discussionCategory(slug:) answers
+# NOT_FOUND even for a category that exists.
+CATEGORIES_QUERY = """
+query($owner: String!, $name: String!) {
   repository(owner: $owner, name: $name) {
-    discussionCategory(slug: $slug) { id }
+    discussionCategories(first: 100) { nodes { id slug } }
   }
 }
 """
@@ -66,9 +68,11 @@ def _graphql(query, variables):
 def load_notes():
     """Every open discussion in the notes category, oldest first."""
     owner, name = REPO.split("/")
-    # an unknown slug comes back as a GraphQL error naming it, which _graphql reports
-    category = _graphql(CATEGORY_QUERY, {"owner": owner, "name": name, "slug": CATEGORY})
-    variables = {"owner": owner, "name": name, "category": category["discussionCategory"]["id"]}
+    categories = _graphql(CATEGORIES_QUERY, {"owner": owner, "name": name})["discussionCategories"]["nodes"]
+    ids = {category["slug"]: category["id"] for category in categories}
+    if CATEGORY not in ids:
+        raise SystemExit(f"{REPO} has no discussion category '{CATEGORY}' (found: {', '.join(ids) or 'none'})")
+    variables = {"owner": owner, "name": name, "category": ids[CATEGORY]}
     notes, cursor = [], None
     while True:
         page = _graphql(NOTES_QUERY, {**variables, "cursor": cursor})["discussions"]
