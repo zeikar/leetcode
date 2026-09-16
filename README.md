@@ -36,7 +36,7 @@ form, index workflow and commit convention.
 
 <!-- PROBLEMS:START -->
 
-**159 solved** — Easy 14 · Medium 77 · Hard 68
+**160 solved** — Easy 14 · Medium 78 · Hard 68
 
 | # | Problem | Difficulty | Solution |
 | ---: | --- | --- | --- |
@@ -163,6 +163,7 @@ form, index workflow and commit convention.
 | 1542 | [Find Longest Awesome Substring](https://zeikar.dev/leetcode/posts/194/) | Hard | [find-longest-awesome-substring.py](solutions/find-longest-awesome-substring.py) |
 | 1568 | [Minimum Number of Days to Disconnect Island](https://zeikar.dev/leetcode/posts/291/) | Hard | [minimum-number-of-days-to-disconnect-island.py](solutions/minimum-number-of-days-to-disconnect-island.py) |
 | 1575 | [Count All Possible Routes](https://zeikar.dev/leetcode/posts/234/) | Hard | [count-all-possible-routes.py](solutions/count-all-possible-routes.py) |
+| 1621 | [Number of Sets of K Non-Overlapping Line Segments](https://zeikar.dev/leetcode/posts/319/) | Medium | [number-of-sets-of-k-non-overlapping-line-segments.py](solutions/number-of-sets-of-k-non-overlapping-line-segments.py) |
 | 1631 | [Path With Minimum Effort](https://zeikar.dev/leetcode/posts/218/) | Medium | [path-with-minimum-effort.py](solutions/path-with-minimum-effort.py) |
 | 1641 | [Count Sorted Vowel Strings](https://zeikar.dev/leetcode/posts/162/) | Medium | [count-sorted-vowel-strings.py](solutions/count-sorted-vowel-strings.py) |
 | 1642 | [Furthest Building You Can Reach](https://zeikar.dev/leetcode/posts/253/) | Medium | [furthest-building-you-can-reach.py](solutions/furthest-building-you-can-reach.py) |
