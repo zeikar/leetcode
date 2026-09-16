@@ -4,7 +4,7 @@ on:
   push:
     branches: [master]
     # Solution filenames appear in the table, and the scripts decide its shape.
-    paths: ["*.py", ".github/scripts/**"]
+    paths: ["solutions/*.py", ".github/scripts/**"]
   # closing or reopening a discussion fires no workflow event, so a closed note
   # leaves the table on the next run instead
   discussion:

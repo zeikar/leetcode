@@ -9,6 +9,7 @@ import urllib.request
 
 GRAPHQL = "https://api.github.com/graphql"
 REPO = os.environ.get("GITHUB_REPOSITORY", "zeikar/leetcode")
+SOLUTIONS = "solutions"
 # The discussion category the notes live in, the same one the site publishes.
 CATEGORY = "posts"
 
@@ -110,10 +111,10 @@ def match_key(text):
 
 
 def solution_files(root="."):
-    """{match_key: path} for every solution file in the repo root."""
+    """{match_key: path} for every solution file."""
     return {
         match_key(os.path.basename(path)[:-3]): path
-        for path in sorted(glob.glob(os.path.join(root, "*.py")))
+        for path in sorted(glob.glob(os.path.join(root, SOLUTIONS, "*.py")))
     }
 
 

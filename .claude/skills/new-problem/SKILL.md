@@ -5,7 +5,7 @@ description: Record a newly solved LeetCode problem in this repo - create the st
 
 # Recording a solved problem
 
-Every problem lives in two places: a solution file at the repo root and a study
+Every problem lives in two places: a solution file in `solutions/` and a study
 note, a discussion in the Posts category. CI checks that they agree, and the
 README index is regenerated from the notes. This skill walks the routine that
 keeps all of it consistent.
@@ -92,7 +92,7 @@ python3 plugin/skills/study/scripts/problem.py 2265
 
 | field | used as |
 | --- | --- |
-| `slug` | the filename, `<slug>.py` |
+| `slug` | the filename, `solutions/<slug>.py` |
 | `number` | the number in the note title |
 | `title` | the rest of the note title |
 | `difficulty` | the note's label, lowercased (`easy` / `medium` / `hard`) |
@@ -129,7 +129,7 @@ into a throwaway directory (the session scratchpad is a good place):
 
 ```bash
 python3 -m pip install --quiet --target "$DIR" pyflakes
-PYTHONPATH="$DIR" python3 -m pyflakes <file>.py   # expect: no output
+PYTHONPATH="$DIR" python3 -m pyflakes solutions/<file>.py   # expect: no output
 ```
 
 ## 3. Create the note
@@ -154,15 +154,15 @@ When the user recorded several approaches, the repo's convention is a
 ## 4. Verify, then commit
 
 ```bash
-GITHUB_TOKEN=$(gh auth token) python3 .github/scripts/check_solutions.py <file>.py
+GITHUB_TOKEN=$(gh auth token) python3 .github/scripts/check_solutions.py solutions/<file>.py
 ```
 
 It must print `checked 1 solution(s): OK` before committing. Solution commits
-here carry `Create <file>.py` as the subject and the note's number alone in the
-body - 151 of the 155 existing ones do:
+here carry `Create <file>.py` as the subject - the bare filename, no directory -
+and the note's number alone in the body; 151 of the 155 existing ones do:
 
 ```bash
-git add <file>.py
+git add solutions/<file>.py
 git commit -m "Create <file>.py" -m "#<note number>"
 git push origin master
 ```

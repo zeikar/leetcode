@@ -40,7 +40,7 @@ def render(paired):
                     f"{SITE_ARTICLE}/{note['number']}/",
                     level.capitalize() or "-",
                     name,
-                    name,
+                    os.path.relpath(path),
                 ),
             )
         )

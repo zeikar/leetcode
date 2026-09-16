@@ -3,9 +3,9 @@ name: Check solutions
 on:
   push:
     branches: [master]
-    paths: ["*.py"]
+    paths: ["solutions/*.py"]
   pull_request:
-    paths: ["*.py"]
+    paths: ["solutions/*.py"]
   workflow_dispatch:
 
 permissions:
@@ -31,7 +31,7 @@ jobs:
           if ! git cat-file -e "$base^{commit}" 2>/dev/null; then
             base="HEAD^"
           fi
-          files=$(git diff --name-only --diff-filter=d "$base" HEAD -- '*.py' | tr '\n' ' ')
+          files=$(git diff --name-only --diff-filter=d "$base" HEAD -- 'solutions/*.py' | tr '\n' ' ')
           echo "args=$files" >> "$GITHUB_OUTPUT"
 
       - name: Check
