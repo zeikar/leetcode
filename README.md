@@ -36,7 +36,7 @@ form, index workflow and commit convention.
 
 <!-- PROBLEMS:START -->
 
-**160 solved** — Easy 14 · Medium 78 · Hard 68
+**161 solved** — Easy 14 · Medium 79 · Hard 68
 
 | # | Problem | Difficulty | Solution |
 | ---: | --- | --- | --- |
@@ -156,6 +156,7 @@ form, index workflow and commit convention.
 | 1446 | [Consecutive Characters](https://zeikar.dev/leetcode/posts/182/) | Easy | [consecutive-characters.py](solutions/consecutive-characters.py) |
 | 1460 | [Make Two Arrays Equal by Reversing Subarrays](https://zeikar.dev/leetcode/posts/273/) | Easy | [make-two-arrays-equal-by-reversing-subarrays.py](solutions/make-two-arrays-equal-by-reversing-subarrays.py) |
 | 1463 | [Cherry Pickup II](https://zeikar.dev/leetcode/posts/247/) | Hard | [cherry-pickup-ii.py](solutions/cherry-pickup-ii.py) |
+| 1477 | [Find Two Non-overlapping Sub-arrays Each With Target Sum](https://zeikar.dev/leetcode/posts/320/) | Medium | [find-two-non-overlapping-sub-arrays-each-with-target-sum.py](solutions/find-two-non-overlapping-sub-arrays-each-with-target-sum.py) |
 | 1481 | [Least Number of Unique Integers after K Removals](https://zeikar.dev/leetcode/posts/252/) | Medium | [least-number-of-unique-integers-after-k-removals.py](solutions/least-number-of-unique-integers-after-k-removals.py) |
 | 1492 | [The kth Factor of n](https://zeikar.dev/leetcode/posts/284/) | Medium | [the-kth-factor-of-n.py](solutions/the-kth-factor-of-n.py) |
 | 1508 | [Range Sum of Sorted Subarray Sums](https://zeikar.dev/leetcode/posts/275/) | Medium | [range-sum-of-sorted-subarray-sums.py](solutions/range-sum-of-sorted-subarray-sums.py) |
