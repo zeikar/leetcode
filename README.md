@@ -36,7 +36,7 @@ form, index workflow and commit convention.
 
 <!-- PROBLEMS:START -->
 
-**161 solved** — Easy 14 · Medium 79 · Hard 68
+**162 solved** — Easy 14 · Medium 79 · Hard 69
 
 | # | Problem | Difficulty | Solution |
 | ---: | --- | --- | --- |
@@ -161,6 +161,7 @@ form, index workflow and commit convention.
 | 1492 | [The kth Factor of n](https://zeikar.dev/leetcode/posts/284/) | Medium | [the-kth-factor-of-n.py](solutions/the-kth-factor-of-n.py) |
 | 1508 | [Range Sum of Sorted Subarray Sums](https://zeikar.dev/leetcode/posts/275/) | Medium | [range-sum-of-sorted-subarray-sums.py](solutions/range-sum-of-sorted-subarray-sums.py) |
 | 1514 | [Path with Maximum Probability](https://zeikar.dev/leetcode/posts/304/) | Medium | [path-with-maximum-probability.py](solutions/path-with-maximum-probability.py) |
+| 1520 | [Maximum Number of Non-Overlapping Substrings](https://zeikar.dev/leetcode/posts/321/) | Hard | [maximum-number-of-non-overlapping-substrings.py](solutions/maximum-number-of-non-overlapping-substrings.py) |
 | 1542 | [Find Longest Awesome Substring](https://zeikar.dev/leetcode/posts/194/) | Hard | [find-longest-awesome-substring.py](solutions/find-longest-awesome-substring.py) |
 | 1568 | [Minimum Number of Days to Disconnect Island](https://zeikar.dev/leetcode/posts/291/) | Hard | [minimum-number-of-days-to-disconnect-island.py](solutions/minimum-number-of-days-to-disconnect-island.py) |
 | 1575 | [Count All Possible Routes](https://zeikar.dev/leetcode/posts/234/) | Hard | [count-all-possible-routes.py](solutions/count-all-possible-routes.py) |
