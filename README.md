@@ -36,7 +36,7 @@ form, index workflow and commit convention.
 
 <!-- PROBLEMS:START -->
 
-**162 solved** — Easy 14 · Medium 79 · Hard 69
+**163 solved** — Easy 14 · Medium 80 · Hard 69
 
 | # | Problem | Difficulty | Solution |
 | ---: | --- | --- | --- |
@@ -150,6 +150,7 @@ form, index workflow and commit convention.
 | 1395 | [Count Number of Teams](https://zeikar.dev/leetcode/posts/270/) | Medium | [count-number-of-teams.py](solutions/count-number-of-teams.py) |
 | 1396 | [Design Underground System](https://zeikar.dev/leetcode/posts/214/) | Medium | [design-underground-system.py](solutions/design-underground-system.py) |
 | 1397 | [Find All Good Strings](https://zeikar.dev/leetcode/posts/188/) | Hard | [find-all-good-strings.py](solutions/find-all-good-strings.py) |
+| 1401 | [Circle and Rectangle Overlapping](https://zeikar.dev/leetcode/posts/322/) | Medium | [circle-and-rectangle-overlapping.py](solutions/circle-and-rectangle-overlapping.py) |
 | 1411 | [Number of Ways to Paint N × 3 Grid](https://zeikar.dev/leetcode/posts/192/) | Hard | [number-of-ways-to-paint-n-3-grid.py](solutions/number-of-ways-to-paint-n-3-grid.py) |
 | 1416 | [Restore The Array](https://zeikar.dev/leetcode/posts/224/) | Hard | [restore-the-array.py](solutions/restore-the-array.py) |
 | 1444 | [Number of Ways of Cutting a Pizza](https://zeikar.dev/leetcode/posts/228/) | Hard | [number-of-ways-of-cutting-a-pizza.py](solutions/number-of-ways-of-cutting-a-pizza.py) |
