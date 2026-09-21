@@ -36,7 +36,7 @@ form, index workflow and commit convention.
 
 <!-- PROBLEMS:START -->
 
-**164 solved** — Easy 15 · Medium 80 · Hard 69
+**165 solved** — Easy 15 · Medium 81 · Hard 69
 
 | # | Problem | Difficulty | Solution |
 | ---: | --- | --- | --- |
@@ -203,6 +203,7 @@ form, index workflow and commit convention.
 | 3016 | [Minimum Number of Pushes to Type Word II](https://zeikar.dev/leetcode/posts/278/) | Medium | [minimum-number-of-pushes-to-type-word-ii.py](solutions/minimum-number-of-pushes-to-type-word-ii.py) |
 | 3414 | [Maximum Score of Non-overlapping Intervals](https://zeikar.dev/leetcode/posts/314/) | Hard | [maximum-score-of-non-overlapping-intervals.py](solutions/maximum-score-of-non-overlapping-intervals.py) |
 | 3498 | [Reverse Degree of a String](https://zeikar.dev/leetcode/posts/323/) | Easy | [reverse-degree-of-a-string.py](solutions/reverse-degree-of-a-string.py) |
+| 3524 | [Find X Value of Array I](https://zeikar.dev/leetcode/posts/324/) | Medium | [find-x-value-of-array-i.py](solutions/find-x-value-of-array-i.py) |
 | 3871 | [Count Commas in Range II](https://zeikar.dev/leetcode/posts/313/) | Medium | [count-commas-in-range-ii.py](solutions/count-commas-in-range-ii.py) |
 
 <!-- PROBLEMS:END -->
